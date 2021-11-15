@@ -10,6 +10,19 @@
   <title>ToDoList</title>
 </head>
 <body>
-  
+  <button onclick="fetchTodos()">Fetch Todos</button>
+  <button onclick="logTodos()">Log Todos</button>
+  <button onclick="populateTodos()">Populate Todos</button>
+
+  <div>
+		<label for="user-id">ID: </label>
+	    <input type="number" id="user-id" min="1" max="10">
+	    <button onclick="findID()">Filter</button>
+	    <button onclick="filterComplete()">Complete</button>
+	    <button onclick="filterIncomplete()">Incomplete</button>
+	</div>
+  <ol id="todo-list">
+    <!-- LIs will go here -->
+  </ol>
 </body>
 </html>
