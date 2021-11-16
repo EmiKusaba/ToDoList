@@ -14,6 +14,8 @@ let arrayOfTodos = [
   "completed": false
 }]
 
+let index = 0
+
 const fetchTodos = () => {
   fetch('https://jsonplaceholder.typicode.com/todos')
   .then( (response) => response.json())
@@ -27,11 +29,23 @@ const logTodos = () => {
 const populateTodos = () => {
   let toDo = document.getElementById ("todo-list")
 
-  const toDoSlice = arrayOfTodos.slice(0, 10)
+  // Clear all items in list
+  while (toDo.firstChild) {
+    toDo.removeChild(toDo.firstChild)
+  }
+
+  // Get next ten items
+  const toDoSlice = arrayOfTodos.slice(index, index + 10)
+
+  index += 10
+
+  if (index > arrayOfTodos.length) {
+    index = 0
+  }
  
   for (i = 0; i < toDoSlice.length; i++) {
       let newListElement = document.createElement ("li")
-      newListElement.innerHTML = arrayOfTodos[i].title
+      newListElement.innerHTML = toDoSlice[i].title
       toDo.appendChild (newListElement);
 
 }}
