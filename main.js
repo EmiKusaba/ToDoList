@@ -27,14 +27,12 @@ const logTodos = () => {
 const populateTodos = () => {
   let toDo = document.getElementById ("todo-list")
 
-  for (i = 0; i < arrayOfTodos.length; i++) {
+  const toDoSlice = arrayOfTodos.slice(0, 10)
+ 
+  for (i = 0; i < toDoSlice.length; i++) {
       let newListElement = document.createElement ("li")
       newListElement.innerHTML = arrayOfTodos[i].title
       toDo.appendChild (newListElement);
-      if (arrayOfTodos[i].completed == false) {
-          newListElement.classList.add("incomplete");
-      } else {
-          newListElement.classList.add("complete");
-      }
-  }
-};
+
+}}
+
