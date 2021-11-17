@@ -35,13 +35,13 @@ const populateTodos = () => {
   }
 
   // Get next ten items
-  index += 10
+  
   const toDoSlice = arrayOfTodos.slice(index, index + 10)
 
   if (index > arrayOfTodos.length) {
     index = 0
   }
-
+  index += 10
   for (i = 0; i < toDoSlice.length; i++) {
     let newListElement = document.createElement("li")
     newListElement.innerHTML = toDoSlice[i].title
@@ -62,6 +62,10 @@ const findID = () => {
   toDos.innerHTML = "";
   const myID = document.getElementById('user-id').value;
   console.log(myID);
+
+  const check = (todo) => {
+    return todo.userId == myID
+  }
 
   const arrayFilter = arrayOfTodos.filter(todo => todo.userId == myID);
 
